@@ -7,5 +7,5 @@ returns the floor of the float.
 
 
 def floor(n: float) -> int:
-    """ return n number """
-    return n
+    """ return int """
+    return int(n)
