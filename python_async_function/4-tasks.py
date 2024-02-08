@@ -7,10 +7,10 @@ You will spawn wait_random n times with the specified max_delay.
 """
 import asyncio
 import typing
-wait_random = __import__('0-basic_async_syntax').wait_random
+task_wait_random = __import__('3-tasks').task_wait_random
 
 
 async def task_wait_n(n: int, max_delay: int) -> typing.List[float]:
     """ return the list of all the delays """
-    result = [wait_random(max_delay) for i in range(n)]
-    return sorted(await asyncio.task_wait_random(*result))
+    result = [task_wait_random(max_delay) for i in range(n)]
+    return sorted(await asyncio.gather(*result))
