@@ -8,8 +8,9 @@ async comprehensing over async_generator,
 then return the 10 random numbers.
 """
 async_generator = __import__('0-async_generator').async_generator
+import typing
 
 
-async def async_comprehension():
+async def async_comprehension() -> typing.List[float]:
     """ function that create a list à to 10 with async comprehension """
     return [data async for data in async_generator()]
