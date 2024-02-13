@@ -7,13 +7,13 @@ from base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
-    """ 
+    """
     Implements a basic cache by extending the BaseCaching class.
     """
 
     def put(self, key, item):
         """ add element to dict of cache """
-        if key is not None or item is not None:
+        if key is not None and item is not None:
             self.cache_data[key] = item
 
     def get(self, key):
