@@ -6,7 +6,12 @@ import base_caching
 
 
 class BasicCache(base_caching.BaseCaching):
+    """    
+    Implements a basic cache by extending the BaseCaching class.
 
+    This class provides methods to add and retrieve items from the cache.
+    """
+    
     def put(self, key, item):
         """ add element to dict of cache """
         if key is not None or item is not None:
