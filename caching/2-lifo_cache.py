@@ -17,7 +17,6 @@ class LIFOCache(BaseCaching):
 
     def put(self, key, item):
         """ add element to dict of cache """
-        print(self.cache_data)
         if key is not None and item is not None:
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 delete = self.cache_data.popitem()
