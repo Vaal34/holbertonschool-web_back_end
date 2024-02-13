@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Caching
+BasicCaching
 """
 
 from base_caching import BaseCaching
@@ -9,8 +9,6 @@ from base_caching import BaseCaching
 class BasicCache(BaseCaching):
     """ 
     Implements a basic cache by extending the BaseCaching class.
-
-    This class provides methods to add and retrieve items from the cache.
     """
 
     def put(self, key, item):
