@@ -33,5 +33,4 @@ class MRUCache(BaseCaching):
             return None
         self.list_keys.remove(key)
         self.list_keys.append(key)
-        print(self.list_keys)
         return self.cache_data[key]
