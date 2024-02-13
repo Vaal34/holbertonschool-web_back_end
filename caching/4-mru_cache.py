@@ -21,9 +21,9 @@ class MRUCache(BaseCaching):
                 if key in self.cache_data:
                     self.list_keys.remove(key)
                 else:
-                    least_recently_key = self.list_keys.pop(len(self.list_keys) - 1)
-                    del self.cache_data[least_recently_key]
-                    print(f"DISCARD: {least_recently_key}")
+                    leastrecent_k = self.list_keys.pop(len(self.list_keys) - 1)
+                    del self.cache_data[leastrecent_k]
+                    print(f"DISCARD: {leastrecent_k}")
             self.list_keys.append(key)
             self.cache_data[key] = item
 
