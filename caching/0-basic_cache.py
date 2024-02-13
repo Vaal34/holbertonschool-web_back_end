@@ -2,16 +2,16 @@
 """
 Caching
 """
-import base_caching
+BaseCaching = __import__('base_caching').BaseCaching
 
 
-class BasicCache(base_caching.BaseCaching):
-    """    
+class BasicCache(BaseCaching):
+    """
     Implements a basic cache by extending the BaseCaching class.
 
     This class provides methods to add and retrieve items from the cache.
     """
-    
+
     def put(self, key, item):
         """ add element to dict of cache """
         if key is not None or item is not None:
