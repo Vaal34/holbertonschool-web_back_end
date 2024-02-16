@@ -56,17 +56,9 @@ class Server:
         assert page > 0
         assert page_size > 0
 
-        first_last_index = index_range(page, page_size)
-        first_index = first_last_index[0]
-        last_index = first_last_index[1]
+        data = self.get_page(page=page, page_size=page_size)
 
-        CSV = self.dataset()
-        ROWPages = []
-
-        for row in CSV[first_index:last_index]:
-            ROWPages.append(row)
-
-        total_page = ceil(len(CSV) / page_size)
+        total_page = ceil(len(self.dataset()) / page_size)
 
         if total_page < page:
             page_size = 0
@@ -76,12 +68,10 @@ class Server:
 
         previous_page = page - 1 if page > 1 else None
 
-
-
         DictPages = {
             "page_size": page_size,
             "page": page,
-            "data": ROWPages,
+            "data": data,
             "next_page": next_page,
             "previous_page": previous_page,
             "total_page": total_page
