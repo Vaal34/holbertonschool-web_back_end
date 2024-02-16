@@ -44,10 +44,16 @@ class Server:
         assert index > 0
         assert page_size > 0
 
+        data = []
+        dataset = self.dataset()
+        for i in range(index, index + page_size):
+            if i < len(dataset):
+                data.append(dataset[i])
+
         Dict = {
             "index": index,
-            "data": self.dataset()[index: index + page_size],
-            "page_size": len(self.dataset()[index: index + page_size]),
+            "data": data,
+            "page_size": len(data),
             "next_index": index + page_size
         }
 
