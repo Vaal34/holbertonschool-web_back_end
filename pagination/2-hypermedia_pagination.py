@@ -35,6 +35,7 @@ class Server:
         """ get data a this page"""
         assert type(page) != str
         assert type(page_size) != str
+        assert page != None
         assert page > 0
         assert page_size > 0
 
