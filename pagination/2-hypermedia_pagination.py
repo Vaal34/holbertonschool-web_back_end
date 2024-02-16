@@ -66,16 +66,16 @@ class Server:
         for row in CSV[first_index:last_index]:
             ROWPages.append(row)
 
-
-        next_page = page + 1 if page > 0 else None
-        previous_page = page - 1 if page > 1 else None
-
         total_page = ceil(len(CSV) / page_size)
 
         if total_page < page:
             page_size = 0
             next_page = None
-
+        else:
+            next_page = page + 1 if page > 0 else None
+        
+        previous_page = page - 1 if page > 1 else None
+        
         DictPages = {"page_size": page_size,
                     "page": page,
                     "data": ROWPages,
