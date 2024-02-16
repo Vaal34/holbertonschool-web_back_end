@@ -53,6 +53,7 @@ class Server:
         """ get data a this page """
         assert type(page) != str
         assert type(page_size) != str
+        assert page != None
         assert page > 0
         assert page_size > 0
 
@@ -75,7 +76,7 @@ class Server:
             next_page = page + 1 if page > 0 else None
         
         previous_page = page - 1 if page > 1 else None
-        
+
         DictPages = {"page_size": page_size,
                     "page": page,
                     "data": ROWPages,
