@@ -39,7 +39,7 @@ class Server:
         assert type(page_size) is int
         assert page_size > 0
 
-        first_last_index = self.index_range(page, page_size)
+        first_last_index = index_range(page, page_size)
         first_index = first_last_index[0]
         last_index = first_last_index[1]
 
