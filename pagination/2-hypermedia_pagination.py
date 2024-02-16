@@ -48,9 +48,13 @@ class Server:
         for row in CSV[first_index:last_index]:
             ROWPages.append(row)
         return ROWPages
-    
+
     def get_hyper(self, page: int = 1, page_size: int = 10) -> List[List]:
         """ get data a this page """
+        assert type(page) != str
+        assert type(page_size) != str
+        assert page > 0
+        assert page_size > 0
 
         first_last_index = index_range(page, page_size)
         first_index = first_last_index[0]
@@ -69,15 +73,18 @@ class Server:
             next_page = None
         else:
             next_page = page + 1 if page > 0 else None
-        
+
         previous_page = page - 1 if page > 1 else None
 
-        DictPages = {"page_size": page_size,
-                    "page": page,
-                    "data": ROWPages,
-                    "next_page": next_page,
-                    "previous_page": previous_page,
-                    "total_page": total_page
-                    }
-        
+
+
+        DictPages = {
+            "page_size": page_size,
+            "page": page,
+            "data": ROWPages,
+            "next_page": next_page,
+            "previous_page": previous_page,
+            "total_page": total_page
+        }
+
         return DictPages
