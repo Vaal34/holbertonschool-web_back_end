@@ -20,6 +20,7 @@ class Server:
 
     def __init__(self):
         self.__dataset = None
+        self.__indexed_dataset = None
 
     def dataset(self) -> List[List]:
         """Cached dataset
@@ -35,7 +36,10 @@ class Server:
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """ get data a this page"""
      
-
+        assert type(page) is int
+        assert page > 0
+        assert type(page_size) is int
+        assert page_size > 0
 
         first_last_index = index_range(page, page_size)
         first_index = first_last_index[0]
