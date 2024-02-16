@@ -35,9 +35,9 @@ class Server:
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """ get data a this page"""
         assert type(page) is int
+        assert page > 0
         assert type(page_size) is int
         assert page_size > 0
-        assert page > 0
 
         first_last_index = index_range(page, page_size)
         first_index = first_last_index[0]
@@ -53,9 +53,9 @@ class Server:
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         """ get data a this page """
         assert type(page) is int
+        assert page > 0
         assert type(page_size) is int
         assert page_size > 0
-        assert page > 0
 
         data = self.get_page(page, page_size)
 
