@@ -51,9 +51,8 @@ class Server:
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> List[List]:
         """ get data a this page """
-        assert type(page) != str
-        assert type(page_size) != str
-        assert page != None
+        assert type(page) is int
+        assert type(page_size) is int
         assert page > 0
         assert page_size > 0
 
