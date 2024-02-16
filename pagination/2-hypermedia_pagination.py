@@ -32,7 +32,7 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        """ get data a this page """
+        """ get data a this page"""
         assert type(page) != str
         assert type(page_size) != str
         assert page > 0
