@@ -40,6 +40,7 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
+        """ get page with hypermedia index """
         assert index > 0
         assert page_size > 0
 
