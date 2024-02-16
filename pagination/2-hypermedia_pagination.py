@@ -47,8 +47,10 @@ class Server:
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> List[List]:
         """ get data a this page """
-        assert isinstance(page, int) and page > 0
-        assert isinstance(page_size, int) and page_size > 0
+        assert isinstance(page, int)
+        page > 0
+        assert isinstance(page_size, int)
+        page_size > 0
 
         data = self.get_page(page=page, page_size=page_size)
 
