@@ -35,9 +35,9 @@ class Server:
         """ get data a this page"""
         assert type(page) != str
         assert type(page_size) != str
-        assert page != None
-        assert page > 0
-        assert page_size > 0
+        if page is not None:
+            assert page > 0
+            assert page_size > 0
 
         first_last_index = index_range(page, page_size)
         first_index = first_last_index[0]
