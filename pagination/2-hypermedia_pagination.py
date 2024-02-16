@@ -20,7 +20,6 @@ class Server:
 
     def __init__(self):
         self.__dataset = None
-        self.__indexed_dataset = None
 
     def dataset(self) -> List[List]:
         """Cached dataset
@@ -35,7 +34,6 @@ class Server:
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """ get data a this page"""
-     
         assert type(page) is int
         assert page > 0
         assert type(page_size) is int
@@ -66,7 +64,7 @@ class Server:
         if total_page < page:
             next_page = None
         else:
-            next_page = page + 1 if page > 0 else None
+            next_page = page + 1 if page < total_page else None
 
         previous_page = page - 1 if page > 1 else None
 
