@@ -3,6 +3,7 @@
 import csv
 from math import ceil
 from typing import List
+from typing import Dict
 
 
 def index_range(page, page_size):
@@ -45,7 +46,7 @@ class Server:
             ROWPages.append(row)
         return ROWPages
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> List[List]:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         """ get data a this page """
         assert type(page) is int
         page > 0
@@ -57,7 +58,6 @@ class Server:
         total_page = ceil(len(self.dataset()) / page_size)
 
         if total_page < page:
-            page_size = 0
             next_page = None
         else:
             next_page = page + 1 if page > 0 else None
