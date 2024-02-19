@@ -7,6 +7,7 @@ import logging
 import os
 import mysql.connector
 
+
 def filter_datum(fields: typing.List[str],
                  redaction: str,
                  message: str,
@@ -58,6 +59,7 @@ def get_logger() -> logging.Logger:
     logger.addHandler(console_handler)
     return logger
 
+
 def get_db() -> mysql.connector.connection.MySQLConnection:
     """ create db conncetion """
     username_db = os.getenv("PERSONAL_DATA_DB_USERNAME")
@@ -66,8 +68,8 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
     db_name = os.getenv("PERSONAL_DATA_DB_NAME")
 
     return mysql.connector.connect(
-    host=host_db,
-    user=username_db,
-    password=password_db,
-    database=db_name
+        host=host_db,
+        user=username_db,
+        password=password_db,
+        database=db_name
     )
