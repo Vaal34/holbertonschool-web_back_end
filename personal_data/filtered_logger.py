@@ -2,9 +2,10 @@
 """ returns the log message obfuscated
 """
 import re
+import typing
 
 
-def filter_datum(fields, redaction, message, separator):
+def filter_datum(fields: typing.List[str], redaction: str, message: str, separator: str) -> str:
     """
     fields: a list of strings representing all fields to obfuscate
     redaction: a string representing by what the field will be obfuscated
