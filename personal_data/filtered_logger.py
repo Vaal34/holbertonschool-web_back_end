@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """ returns the log message obfuscated
 """
 import re
@@ -58,7 +58,8 @@ def get_logger() -> logging.Logger:
     logger.addHandler(console_handler)
     return logger
 
-def get_db():
+def get_db() -> mysql.connector.connection.MySQLConnection:
+    """ create db conncetion """
     username_db = os.getenv("PERSONAL_DATA_DB_USERNAME")
     password_db = os.getenv("PERSONAL_DATA_DB_PASSWORD")
     host_db = os.getenv("PERSONAL_DATA_DB_HOST")
@@ -70,4 +71,3 @@ def get_db():
     password=password_db,
     database=db_name
     )
-    
