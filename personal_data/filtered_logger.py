@@ -4,7 +4,8 @@
 import re
 import typing
 import logging
-
+import os
+import mysql.connector
 
 def filter_datum(fields: typing.List[str],
                  redaction: str,
@@ -53,6 +54,20 @@ def get_logger() -> logging.Logger:
     logger.propagate = False
     console_handler = logging.StreamHandler()
     console_handler.setLevel(logging.INFO)
-    console_handler.setFormatter(RedactingFormatter.format(
-        RedactingFormatter.PII_FIELDS))
+    console_handler.setFormatter(RedactingFormatter(fields=PII_FIELDS))
     logger.addHandler(console_handler)
+    return logger
+
+def get_db():
+    username_db = os.getenv("PERSONAL_DATA_DB_USERNAME")
+    password_db = os.getenv("PERSONAL_DATA_DB_PASSWORD")
+    host_db = os.getenv("PERSONAL_DATA_DB_HOST")
+    db_name = os.getenv("PERSONAL_DATA_DB_NAME")
+
+    mysql.connector.connect(
+    host=host_db,
+    user=username_db,
+    password=password_db,
+    database=db_name
+    )
+    
