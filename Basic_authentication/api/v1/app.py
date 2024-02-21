@@ -55,11 +55,9 @@ def before_request():
         return
 
     if auth.authorization_header(request) is None:
-        print("caca")
         return abort(401)
 
     if auth.current_user(request.path) is None:
-        print("pipi")
         return abort(403)
 
 
