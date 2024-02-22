@@ -51,30 +51,25 @@ def forbidden(error) -> str:
 def before_request():
     """  checks authentication before each request, except for specific routes.
     """
+
     if auth is None:
         return
 
-    exclude_path = ['/api/v1/status/',
-                    '/api/v1/unauthorized/',
-                    '/api/v1/forbidden/',
-                    '/api/v1/auth_session/login/']
+    exclude_paths = [
+        '/api/v1/status/',
+        '/api/v1/unauthorized/',
+        '/api/v1/forbidden/',
+        '/api/v1/auth_session/login/'
+    ]
 
-    if auth.require_auth(request.path, exclude_path) is not True:
+    if request.path in exclude_paths:
         return
 
-    if auth.session_cookie(request) is None:
-        return abort(401)
-
-    if auth.authorization_header(request) is None \
-            and auth.session_cookie(request) is None:
-        return abort(401)
-
-    if auth.authorization_header(request) is None:
-        return abort(401)
+    if auth.authorization_header(request) is None and auth.session_cookie(request) is None:
+        abort(401)
 
     if auth.current_user(request) is None:
-        return abort(403)
-
+        abort(403)
 
     request.current_user = auth.current_user(request)
 
