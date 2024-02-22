@@ -32,7 +32,6 @@ def view_one_user(user_id: str = None) -> str:
 
     user = User.get(user_id)
     if user is None:
-        print("caca")
         abort(404)
 
     if user_id is None:
