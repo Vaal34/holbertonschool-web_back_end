@@ -10,7 +10,7 @@ import uuid
 
 
 class SessionAuth(Auth):
-    """ class SessionUAuth inerith from Auth """
+    """ class SessionAuth inerith from Auth """
 
     user_id_by_session_id = {}
 
