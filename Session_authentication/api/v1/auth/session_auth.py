@@ -46,13 +46,13 @@ class SessionAuth(Auth):
         """ kill the session """
         if request is None:
             return False
-        session_cookie = self.session_cookie(request)
 
-        if session_cookie is None:
+        if self.session_cookie(request) is None:
             return False
+        else:
+            session_cookie = self.session_cookie(request)
 
-        user_id = self.user_id_for_session_id(session_cookie)
-        if user_id is None:
+        if self.user_id_for_session_id(session_cookie) is None:
             return False
 
         del self.user_id_by_session_id[session_cookie]
