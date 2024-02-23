@@ -9,7 +9,7 @@ from api.v1.views import User
 
 @app_views.route('/auth_session/login', methods=['POST'], strict_slashes=False)
 def auth_session_login():
-    
+    """ auth sessions login route"""
     email = request.form.get("email")
     password = request.form.get("password")
 
