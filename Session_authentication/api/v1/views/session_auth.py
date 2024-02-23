@@ -40,6 +40,6 @@ def logout():
     """ logout path """
     from api.v1.app import auth
     destroy_session = auth.destroy_session(request)
-    if destroy_session is False:
+    if destroy_session is None:
         return abort(404)
     return jsonify({}), 200
