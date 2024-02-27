@@ -39,7 +39,7 @@ class DB:
         self._session.commit()
         return user
 
-    def find_user_by(self, **kwargs: str):
+    def find_user_by(self, **kwargs: str) -> User:
         """ find user in db """
         if not kwargs:
             raise InvalidRequestError
