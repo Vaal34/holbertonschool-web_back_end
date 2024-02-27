@@ -24,7 +24,7 @@ class Auth:
         """ register user """
         user = self._db._session.query(User).filter_by(email=email).first()
         if user:
-            raise ValueError(f"User {email} already exists.")
+            raise ValueError(f"User {email} already exists")
         else:
             hashed_password = _hash_password(password)
             new_user = User(email=email, hashed_password=hashed_password)
