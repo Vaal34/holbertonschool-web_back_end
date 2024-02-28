@@ -28,7 +28,7 @@ def register_user():
         return jsonify({"message": "email already registered"})
 
 
-@app.route("/session", methods=["POST"], strict_slashes=False)
+@app.route("/sessions", methods=["POST"], strict_slashes=False)
 def login():
     """ login """
     try:
