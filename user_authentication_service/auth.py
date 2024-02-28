@@ -73,8 +73,6 @@ class Auth:
     def destroy_session(self, user_id: int) -> None:
         """ destroy session id """
         try:
-            user = self._db.find_user_by(id=user_id)
-            user.session_id = None
-            self._db.__session.commit()
+            self._db.update_user(user_id, session_id=None)
         except InvalidRequestError:
             return None
