@@ -8,7 +8,7 @@ from flask_cors import (CORS, cross_origin)
 app = Flask(__name__)
 
 
-@app.route("/", method=['GET'], strict_slashes=False)
+@app.route("/")
 def get_request() -> str:
     """ get request """
     return jsonify({"message": "Bienvenue"})
