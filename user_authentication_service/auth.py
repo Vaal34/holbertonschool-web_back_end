@@ -72,7 +72,7 @@ class Auth:
     def destroy_session(self, user_id: int) -> None:
         """ destroy session id """
         try:
-            user = self.get_user_from_session_id(user_id)
+            user = self._db.find_user_by(id=user_id)
             user.session_id = None
             self._db.__session.commit()
         except:
