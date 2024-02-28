@@ -8,7 +8,6 @@ from auth import Auth
 from sqlalchemy.orm.exc import NoResultFound
 
 
-
 app = Flask(__name__)
 AUTH = Auth()
 
@@ -54,9 +53,10 @@ def logout():
     try:
         user = AUTH.get_user_from_session_id(session_id)
         AUTH.destroy_session(user.id)
-        return redirect("/", 200)
+        return redirect("/", code=302)
     except NoResultFound:
         return abort(403)
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="5000", debug=True)
