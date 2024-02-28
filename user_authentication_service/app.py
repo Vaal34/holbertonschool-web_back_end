@@ -2,9 +2,11 @@
 """
 Flask APP
 """
-from flask import Flask, jsonify, abort, request
+from flask import Flask, jsonify, abort, request, redirect
 from flask_cors import (CORS, cross_origin)
 from auth import Auth
+from sqlalchemy.orm.exc import NoResultFound
+
 
 
 app = Flask(__name__)
@@ -44,6 +46,17 @@ def login():
     except ValueError:
         return abort(401)
 
+
+@app.route("/sessions", methods=["DELETE"], strict_slashes=False)
+def logout():
+    """ logout """
+    session_id = request.cookies.get("session_id")
+    try:
+        user = AUTH.get_user_from_session_id(session_id)
+        AUTH.destroy_session(user.id)
+        return redirect("/", 200)
+    except NoResultFound:
+        return abort(403)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="5000", debug=True)
