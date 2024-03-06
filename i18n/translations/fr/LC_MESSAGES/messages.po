@@ -8,11 +8,10 @@ msgstr "Bienvenue chez Holberton"
 
 msgid "home_header"
 msgstr "Bonjour monde!"
-
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-06 12:14+0100\n"
-"PO-Revision-Date: 2024-03-06 12:14+0100\n"
+"POT-Creation-Date: 2024-03-06 12:25+0100\n"
+"PO-Revision-Date: 2024-03-06 12:25+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -21,3 +20,4 @@ msgstr "Bonjour monde!"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
+
