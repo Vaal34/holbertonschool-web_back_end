@@ -2,7 +2,7 @@
 """
 Cache class
 """
-import functools
+from functools import wraps
 from typing import Callable, Optional, Union
 import redis
 import uuid
@@ -14,7 +14,7 @@ def count_calls(method: Callable) -> Callable:
     key = method.__qualname__
 
     # Définition du wrapper qui va encapsuler la méthode originale
-    @functools.wraps(method)
+    @wraps(method)
     def wrapper(self, *args, **kwargs):
         """ Wrapper """
         # Incrémentation du compteur associé à la méthode
