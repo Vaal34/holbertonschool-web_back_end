@@ -15,7 +15,7 @@ def count_calls(method: Callable) -> Callable:
 
     # Définition du wrapper qui va encapsuler la méthode originale
     @functools.wraps(method)
-    def wrapper(self, *args, **kwargs) :
+    def wrapper(self, *args, **kwargs):
         """ Wrapper for decorator functionality """
         # Incrémentation du compteur associé à la méthode
         self._redis.incr(key)
@@ -40,16 +40,17 @@ class Cache():
         return random_key
 
     def get(self, key: str, fn: Optional[Callable] = None):
-        """  """
+        """ Store input data in Redis using a
+        random key and return the key """
         data = self._redis.get(key)
         if fn:
             return fn(data)
         return data
 
     def get_str(self, key: str) -> Union[str, None]:
-        # Get string data from Redis
+        """ Get string data from Redis """
         return self.get(key, fn=lambda d: d.decode('utf-8'))
 
     def get_int(self, key: str) -> Union[int, None]:
-        # Get integer data from Redis
+        """ Get integer data from Redis """
         return self.get(key, fn=int)
