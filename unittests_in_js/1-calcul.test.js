@@ -10,16 +10,18 @@ describe('Test Calcul function', function(){
     });
     describe("function type is SUBTRACT", function(){
         it('should work when type is SUBTRACT', function(){
-            assert.equal(calculateNumber("SUBTRACT", 2, 3), -1)
-            assert.equal(calculateNumber("SUBTRACT", 5.75, 3.25), 3)
-            assert.equal(calculateNumber("SUBTRACT", -10.25, -11), 1)
+            assert.equal(calculateNumber("SUBTRACT", 2, 3), -1);
+            assert.equal(calculateNumber("SUBTRACT", 5.75, 3.25), 3);
+            assert.equal(calculateNumber("SUBTRACT", -10.25, -11), 1);
         });
     });
     describe("function type is DIVIDE", function(){
         it('should work when type is DIVIDE', function(){
-            assert.equal(calculateNumber("DIVIDE", 4.25, 2.25), 2)
-            assert.equal(calculateNumber("DIVIDE", 81.23, 8.75), 9)
-            assert.equal(calculateNumber("DIVIDE", -10.25, 0), 'Error')
+            assert.equal(calculateNumber("DIVIDE", 4.25, 2.25), 2);
+            assert.equal(calculateNumber("DIVIDE", 81.23, 8.75), 9);
+        });
+        it("return 'Error' when b is equal to 0", function(){
+            assert.equal(calculateNumber("DIVIDE", -10.25, 0), 'Error');
         });
     });
 })
