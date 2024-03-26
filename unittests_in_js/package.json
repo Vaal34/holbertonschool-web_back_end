@@ -1,0 +1,20 @@
+{
+  "name": "unittests_in_js",
+  "version": "1.0.0",
+  "description": "unittest",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "assert": "^2.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^10.3.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Vaal34",
+  "license": "ISC"
+}
