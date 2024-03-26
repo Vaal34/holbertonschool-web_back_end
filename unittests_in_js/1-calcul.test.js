@@ -20,7 +20,7 @@ describe('Test Calcul function', function(){
             assert.equal(calculateNumber('DIVIDE', 81.23, 8.75), 9.283428571428573);
         });
         it("return 'Error' when b is equal to 0", function(){
-            assert.equal(calculateNumber('DIVIDE', -10.25, 0), 'Error');
+            assert.equal(calculateNumber('DIVIDE', 1.25, 0), 'Error');
         });
     });
 })
