@@ -1,13 +1,13 @@
 function calculateNumber(type, a, b) {
     if(type === "DIVIDE"){
         if(b === 0) {
-            return "Error";
+            return 'Error';
         }
-        return (a / b);
+        return Math.round(a) / Math.round(b);
     } else if(type === "SUM"){
-        return (Math.round(a) + Math.round(b))
+        return Math.round(a) + Math.round(b);
     } else if(type === "SUBTRACT") {
-        return (Math.round(a) - Math.round(b))
+        return Math.round(a) - Math.round(b);
     }
-}
+};
 module.exports = calculateNumber;
