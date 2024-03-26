@@ -14,6 +14,6 @@ describe('Test Rounded', function(){
     it('should work when type is DIVIDE', function(){
         assert.equal(calculateNumber("DIVIDE", 4.25, 2.25), 2)
         assert.equal(calculateNumber("DIVIDE", 81.23, 8.75), 9)
-        assert.equal(calculateNumber("DIVIDE", -10.25, 0), "Error")
+        assert.equal(calculateNumber("DIVIDE", -10.25, 0), 'Error')
     });
 })
