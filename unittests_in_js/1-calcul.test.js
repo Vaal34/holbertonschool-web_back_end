@@ -16,8 +16,8 @@ describe('Test Calcul function', function(){
     });
     describe("function type is DIVIDE", function(){
         it('should work when type is DIVIDE', function(){
-            assert.equal(calculateNumber('DIVIDE', 3, 1.5), 2);
-            assert.equal(calculateNumber('DIVIDE', 81.23, 8.75), 9.283428571428573);
+            assert.equal(calculateNumber('DIVIDE', 3.25, 1.5), 1.5);
+            assert.equal(calculateNumber('DIVIDE', 81.23, 8.75), 9);
         });
         it("return 'Error' when b is equal to 0", function(){
             assert.equal(calculateNumber('DIVIDE', 1.25, 0), 'Error');
