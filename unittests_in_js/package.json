@@ -7,10 +7,12 @@
     "test": "test"
   },
   "dependencies": {
-    "assert": "^2.1.0"
+    "assert": "^2.1.0",
+    "require": "^2.4.20"
   },
   "devDependencies": {
-    "mocha": "^10.3.0"
+    "chai": "file:node_modules/chai",
+    "mocha": "^10.4.0"
   },
   "scripts": {
     "test": "mocha"
