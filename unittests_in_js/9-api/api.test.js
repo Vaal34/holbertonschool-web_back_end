@@ -16,11 +16,12 @@ describe("Index page", function(){
     });
 
     it("should return SC 200 and Welcome to the payment system", function(done){
-        request.get("http://localhost:7865/", function(e, r, b){
+        request.get("http://localhost:7865", function(e, r, b){
             assert.equal(r.statusCode, 200)
             assert.equal(r.body, "Welcome to the payment system")
+            done();
         })
-    })
+    });
 
     it("should the correct status code 200 when id is not a number", function(done){
         request("http://localhost:7865/cart/test", function(err, response, body){
